@@ -9,7 +9,7 @@ export default function MobileMenu({
 	navItems,
 	setNavStatus,
 }: {
-	navItems: { title: string; href: string; }[];
+	navItems: { title: string; href: string }[];
 	setNavStatus: (value: boolean) => void;
 }) {
 	const loginBtnFunc = () => {
@@ -58,11 +58,11 @@ export default function MobileMenu({
 			initial="initial"
 			animate="animate"
 			exit="exit"
-			className="fixed left-0 top-0 w-full h-screen bg-brand-dark text-white py-10 px-8 origin-top"
+			className="fixed left-0 top-0 w-full h-screen bg-brand-dark text-white py-10 px-8 origin-top z-[100]"
 		>
 			<div className="flex h-full flex-col">
 				<div className="flex justify-between items-center">
-					<h1 className="text-xl font-bold">Menu</h1>
+					<h1 className="text-xl font-bold font-neue-machina">Menu</h1>
 					<XCircleIcon
 						className="h-8 w-8 cursor-pointer text-primaryBlue"
 						onClick={() => setNavStatus(false)}
@@ -87,8 +87,8 @@ export default function MobileMenu({
 					<Button
 						variant="primary"
 						size="md"
-                        onClick={loginBtnFunc}
-						className="text-black font-extrabold text-sm  px-[20px] mt-10"
+						onClick={loginBtnFunc}
+						className="text-black font-extrabold text-sm  px-[20px] mt-8"
 					>
 						Connect Wallet
 					</Button>
