@@ -113,7 +113,7 @@
 	}
 
 	body {
-		@apply text-foreground bg-brand-dark h-full bg-[url('/bg-image.svg')] bg-top bg-contain  bg-no-repeat scroll-smooth;
+		@apply text-foreground bg-brand-dark h-full bg-[url('/bg-image.svg')] bg-right-top bg-contain  bg-no-repeat scroll-smooth overflow-x-hidden;
 	}
 
 	html {
