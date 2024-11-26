@@ -54,7 +54,7 @@ function App() {
 									<TextLoop interval={2.8}>
 										{"Trusted"}
 										{"Secure"}
-										{"Fast"}
+										{"Swift"}
 									</TextLoop>{" "}
 									Multi-Chain
 									<span className="text-[#F9D423]">
