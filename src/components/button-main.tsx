@@ -44,7 +44,7 @@ const buttonVariants = cva(
 					"text-white  px-[0.97606rem] bg-gradient-to-r from-brand-yellow to-[#FFE68F] to-[100%]",
 				outline: "bg-transparent border-2 border-brand-yellow text-white",
 				danger: "bg-deep-red text-white",
-				plain: "bg-white text-black border",
+				plain: "bg-transparent text-gray-300 border-2 border-white/40",
 			},
 			size: {
 				sm: "h-8 px-[10px]",

@@ -1,50 +1,70 @@
-# React + TypeScript + Vite
+# Moonex Exchange
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![Twitter Logo](https://upload.wikimedia.org/wikipedia/en/6/60/Twitter_bird_logo_2012.svg) [@DhruvDeora2](https://x.com/DhruvDeora2)
 
-Currently, two official plugins are available:
+## Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Moonex Exchange is an interactive landing page for a multi-chain decentralized exchange (DEX) that allows users to trade, earn, and own cryptocurrencies seamlessly. This project features wallet integration, providing users with a secure and efficient trading experience.
 
-## Expanding the ESLint configuration
+## Features
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+-   **Responsive Design**: The landing page is fully responsive, ensuring a great user experience on both desktop and mobile devices.
+-   **Wallet Integration**: Users can connect their wallets to trade cryptocurrencies directly from the platform.
+-   **Animated UI**: The application utilizes motion and animation for a dynamic user interface, enhancing user engagement.
+-   **Comparison Table**: A detailed comparison table to showcase the advantages of Moonex over other DEX platforms.
+-   **FAQs Section**: An interactive FAQ section to assist users with common queries.
 
-- Configure the top-level `parserOptions` property like this:
+## Technologies Used
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+-   **React**: A JavaScript library for building user interfaces.
+-   **TypeScript**: A superset of JavaScript that adds static types.
+-   **Vite**: A build tool that provides a fast development environment.
+-   **Tailwind CSS**: A utility-first CSS framework for styling.
+-   **Motion**: For animations and transitions.
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## Getting Started
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+To run the project locally, follow these steps:
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+1. Clone the repository:
+
+    ```bash
+    git clone https://github.com/juliusjava/moonex-exchange.git
+    ```
+
+2. Navigate to the project directory:
+
+    ```bash
+    cd moonex-exchange
+    ```
+
+3. Install the dependencies:
+
+    ```bash
+    npm install
+    ```
+
+    or
+    (recommended)
+
+    ```bash
+    pnpm install
+    ```
+
+4. Start the development server:
+
+    ```bash
+    npm run dev
+    ```
+
+    or
+
+    ```bash
+    pnpm dev
+    ```
+
+5. Open your browser and visit `http://localhost:5173`.
+
+## Follow Me
+
+You can follow me on Twitter: [@julius_java00](https://x.com/julius_java00)

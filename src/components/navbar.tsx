@@ -5,6 +5,8 @@ import { useState, useEffect } from "react";
 import { AnimatePresence } from "motion/react";
 import MobileMenu from "./mobile-menu";
 import { cn } from "@/lib/utils";
+import { useAppKitAccount, useAppKit } from "@reown/appkit/react";
+
 // import { Link } from "react-router-dom";
 const NAV_LINKS = [
 	{
@@ -38,6 +40,10 @@ export default function Navbar() {
 
 	const [scrolled, setScrolled] = useState(false);
 
+	const { open } = useAppKit();
+
+	const { isConnected } = useAppKitAccount();
+
 	function toggleNav() {
 		setNavOpen(!navOpen);
 	}
@@ -61,11 +67,11 @@ export default function Navbar() {
 	return (
 		<nav
 			className={cn(
-				"transition-all duration-300 ease-in-out fixed w-full top-0 left-0 z-[70]",
-				scrolled && "bg-black/50 backdrop-blur-sm "
+				"transition-all duration-300 ease-in-out  w-full fixed top-0 left-0 z-[70]",
+				scrolled && "bg-black/50 backdrop-blur-sm"
 			)}
 		>
-			<div className="flex items-center justify-between  py-5 lg:py-7 px-2 font-raleway lg:px-4 container mx-auto">
+			<div className="flex items-center justify-between  py-5  px-2 font-raleway lg:px-4 lg:container w-full lg:mx-auto">
 				<img
 					src={logo}
 					alt="Moonex Logo"
@@ -97,13 +103,21 @@ export default function Navbar() {
 						);
 					})}
 				</ul>
-				<Button
-					variant="primary"
-					size="md"
-					className="text-black font-extrabold text-sm hidden lg:block px-[20px] h-10"
-				>
-					Connect Wallet
-				</Button>
+				{isConnected && (
+					<div className="hidden lg:block">
+						<appkit-button/>
+					</div>
+				)}
+				{!isConnected && (
+					<Button
+						variant="primary"
+						size="md"
+						className="text-black font-extrabold text-sm hidden lg:block px-[20px] h-10"
+						onClick={() => open()}
+					>
+						Connect Wallet
+					</Button>
+				)}
 			</div>
 		</nav>
 	);

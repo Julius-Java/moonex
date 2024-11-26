@@ -12,6 +12,11 @@
   "dependencies": {
     "@heroicons/react": "^2.2.0",
     "@radix-ui/react-slot": "^1.1.0",
+    "@reown/appkit": "^1.5.2",
+    "@reown/appkit-adapter-solana": "^1.5.2",
+    "@reown/appkit-adapter-wagmi": "^1.5.2",
+    "@solana/wallet-adapter-wallets": "^0.19.32",
+    "@tanstack/react-query": "^5.61.3",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "lucide-react": "^0.460.0",
@@ -19,8 +24,11 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^7.0.1",
+    "sonner": "^1.7.0",
     "tailwind-merge": "^2.5.5",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss-animate": "^1.0.7",
+    "viem": "^2.21.50",
+    "wagmi": "^2.13.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.13.0",

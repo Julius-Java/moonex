@@ -14,12 +14,13 @@ import plus from "/plus.svg";
 import chevDown from "/chev-down.svg";
 import { InView } from "./components/motion-ui/in-view";
 import Footer from "./components/footer";
-
-// TODO - Move important assets to assets folder
-// TODO - Contribute to motion primitives by moving all imports from framer-motion to motion/react
-// TODO - Contribute accordion collapsed data attribute to motion primitives.
+import { useAppKit, useAppKitAccount } from "@reown/appkit/react";
+import { cn } from "./lib/utils";
 
 function App() {
+	const { open } = useAppKit();
+	const { isConnected } = useAppKitAccount();
+
 	return (
 		<>
 			<Navbar />
@@ -32,12 +33,12 @@ function App() {
 						variants={{
 							hidden: {
 								opacity: 0,
-								x: -100,
+								y: -100,
 								filter: "blur(4px)",
 							},
 							visible: {
 								opacity: 1,
-								x: 0,
+								y: 0,
 								filter: "blur(0px)",
 							},
 						}}
@@ -48,7 +49,7 @@ function App() {
 						transition={{ duration: 0.6, ease: "easeInOut" }}
 					>
 						<div className="space-y-6 lg:text-left">
-							<div className="space-y-2 lg:max-w-2xl xl:max-w-4xl lg:mx-0">
+							<div className="space-y-2 lg:max-w-2xl xl:max-w-5xl lg:mx-0">
 								<h1 className="text-white font-extrabold text-2xl md:text-4xl lg:text-6xl xl:text-7xl">
 									<TextLoop interval={2.8}>
 										{"Trusted"}
@@ -68,12 +69,25 @@ function App() {
 								</span>
 							</div>
 							<div className="space-y-4 max-w-max mx-auto lg:max-w-none lg:mx-0 lg:flex lg:items-center lg:space-y-0 lg:gap-x-5">
-								<Button
-									variant="primary"
-									className="h-10  px-[14px] text-black font-bold text-sm  w-[160px] lg:h-12 lg:px-[16px] lg:text-base lg:w-[180px]"
-								>
-									Connect Wallet
-								</Button>
+								{isConnected && (
+									<div className="">
+										<appkit-button size="xxl" />
+									</div>
+								)}
+								{!isConnected && (
+									<Button
+										variant={
+											!isConnected ? "primary" : "plain"
+										}
+										className={cn(
+											"h-10  px-[14px] text-black font-bold text-sm  w-[160px] lg:h-12 lg:px-[16px] lg:text-base lg:w-[180px]",
+											isConnected && "text-gray-300"
+										)}
+										onClick={() => open()}
+									>
+										Connect Wallet
+									</Button>
+								)}
 
 								<Button
 									variant="outline"

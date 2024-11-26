@@ -2,6 +2,7 @@ import { XCircleIcon } from "@heroicons/react/24/outline";
 import { cn } from "@/lib/utils";
 import { motion } from "motion/react";
 import Button from "./button-main";
+import { useAppKit, useAppKitAccount, } from "@reown/appkit/react";
 
 const MotionDiv = motion.div;
 
@@ -12,9 +13,16 @@ export default function MobileMenu({
 	navItems: { title: string; href: string }[];
 	setNavStatus: (value: boolean) => void;
 }) {
+	const { open } = useAppKit();
+
+	const { isConnected } = useAppKitAccount();
+
+
 	const loginBtnFunc = () => {
+		open();
 		setNavStatus(false);
 	};
+
 
 	const menuVariants = {
 		initial: {
@@ -52,6 +60,7 @@ export default function MobileMenu({
 			},
 		},
 	};
+
 	return (
 		<MotionDiv
 			variants={menuVariants}
@@ -62,7 +71,9 @@ export default function MobileMenu({
 		>
 			<div className="flex h-full flex-col">
 				<div className="flex justify-between items-center">
-					<h1 className="text-xl font-bold font-neue-machina">Menu</h1>
+					<h1 className="text-xl font-bold font-neue-machina">
+						Menu
+					</h1>
 					<XCircleIcon
 						className="h-8 w-8 cursor-pointer text-primaryBlue"
 						onClick={() => setNavStatus(false)}
@@ -84,14 +95,17 @@ export default function MobileMenu({
 							/>
 						</li>
 					))}
-					<Button
-						variant="primary"
-						size="md"
-						onClick={loginBtnFunc}
-						className="text-black font-extrabold text-sm  px-[20px] mt-8"
-					>
-						Connect Wallet
-					</Button>
+					{isConnected && <appkit-button size="xxl" />}
+					{!isConnected && (
+						<Button
+							variant="primary"
+							size="md"
+							onClick={loginBtnFunc}
+							className="text-black font-extrabold text-sm  px-[20px] mt-8"
+						>
+							Connect Wallet
+						</Button>
+					)}
 				</motion.ul>
 			</div>
 		</MotionDiv>
