@@ -13,7 +13,7 @@ if (!projectId) {
 export const metadata = {
         name: 'Moonex Exchange',
         description: 'Trusted and secure multi-chain dex platform',
-        url: 'https://reown.com', // origin must match your domain & subdomain
+        url: 'https://moonex-dex.vercel.app', // origin must match your domain & subdomain
         icons: ['https://avatars.githubusercontent.com/u/179229932']
       }
 
